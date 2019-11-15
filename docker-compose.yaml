@@ -21,4 +21,3 @@ services:
       - POSTGRES_DB=postgres
     volumes:
       - /data/postgre
-      - /private/var/run/docker.sock:/var/run/docker.sock
