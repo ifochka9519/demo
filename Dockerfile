@@ -1,8 +1,5 @@
-FROM openjdk:7
-RUN mkdir -p /opt/demo && mkdir /opt/demo/config
-VOLUME /opt/demo/config
-ARG JAR_FILE=out/artifacts/demo_jar/demo.jar
-ADD ${JAR_FILE} demo.jar
-
+FROM java:8
+ARG JAR_FILE=target/demo-0.0.1-SNAPSHOT.jar
+ADD ${JAR_FILE} /opt/demo/
 EXPOSE 8080
-CMD ["java","-jar","/opt/demo.jar"]
+ENTRYPOINT ["java", "-jar", "/opt/demo/demo-0.0.1-SNAPSHOT.jar"]
